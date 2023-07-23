@@ -1,0 +1,34 @@
+.slick-fade .slick-slide {
+  transition: opacity 0.5s ease-in-out;
+}
+.slick-fade .slick-active {
+  opacity: 1;
+}
+.slick-fade .slick-slide {
+  opacity: 0;
+}
+
+/* FadingCarousel.module.css */
+.prevArrow {
+  position: absolute;
+  transition: all;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  background: #000;
+  color: white;
+  padding: 10px;
+}
+
+.nextArrow {
+  position: absolute;
+  transition: all;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  background: #000;
+  color: white;
+  padding: 10px;
+}
