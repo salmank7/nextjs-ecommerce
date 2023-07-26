@@ -5,13 +5,17 @@ import { VscMenu } from "react-icons/vsc";
 import UserMenu from "./UserMenu";
 import Logo from "./Logo";
 import Container from "../Container";
-import { SafeUser } from "@/app/types";
+import { SafeProduct, SafeUser } from "@/app/types";
 
 interface UpperNavbarProps {
   currentUser: SafeUser | null | undefined;
+  favProducts: SafeProduct | null | undefined;
 }
 
-const UpperNavbar: React.FC<UpperNavbarProps> = ({ currentUser }) => {
+const UpperNavbar: React.FC<UpperNavbarProps> = ({
+  currentUser,
+  favProducts,
+}) => {
   return (
     <div className="shadow-sm">
       <Container>
@@ -23,7 +27,7 @@ const UpperNavbar: React.FC<UpperNavbarProps> = ({ currentUser }) => {
           <div className="hidden md:block flex-1"></div>
           {/* empty div for bigger screens */}
           <Logo />
-          <UserMenu currentUser={currentUser} />
+          <UserMenu currentUser={currentUser} favProducts={favProducts} />
         </div>
       </Container>
     </div>

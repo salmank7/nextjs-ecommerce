@@ -2,32 +2,50 @@
 
 import React, { MouseEventHandler } from "react";
 import Image from "next/image";
-import { SafeProduct } from "../types";
+import { SafeProduct, SafeUser } from "../types";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import usePreviewModal from "../hooks/usePreviewModal";
+import { useCart } from "../hooks/useCart";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { BiHeart } from "react-icons/bi";
 import { toast } from "react-hot-toast";
+import getCurrentUser from "../actions/getCurrentUser";
+import axios from "axios";
+import HeartButton from "./HeartButton";
 
 interface ProductProps {
   product: SafeProduct;
+  currentUser: SafeUser | null;
 }
 
-const Product: React.FC<ProductProps> = ({ product }) => {
-  const previewModal = usePreviewModal();
+const Product: React.FC<ProductProps> = ({ product, currentUser }) => {
+  const cart = useCart();
+  const router = useRouter();
+  // const previewModal = usePreviewModal();
 
-  const onPreview: MouseEventHandler<HTMLDivElement> = (event) => {
-    event.stopPropagation();
+  // const onPreview: MouseEventHandler<HTMLDivElement> = (event) => {
+  //   event.stopPropagation();
 
-    previewModal.onOpen(product);
-  };
+  //   previewModal.onOpen(product);
+  // };
 
   const addToCart: MouseEventHandler<HTMLDivElement> = (event) => {
     event.stopPropagation();
 
-    toast.success("propagatin complete");
+    cart.addToCart(product);
+  };
+
+  const handleFavourite: MouseEventHandler<HTMLDivElement> = (event) => {
+    event.stopPropagation();
+
+    axios.post("/");
   };
   return (
     <div
-      onClick={onPreview}
+      // href={`/preview/${product.id}`}
+      onClick={() => router.push(`/preview/${product.id}`)}
+      // onClick={onPreview}
       className="group flex items-center relative shadow-md w-full h-[548px] md:h-[630px] flex-col "
     >
       <div className="relative w-full h-full">
@@ -55,6 +73,12 @@ const Product: React.FC<ProductProps> = ({ product }) => {
         <div className="text-sm text-gray-500">RS {product.price}</div>
       </div>
       {/* add to cart button */}
+      <div
+        className="absolute top-1 right-1 text-white"
+        onClick={handleFavourite}
+      >
+        <HeartButton currentUser={currentUser} productId={product.id} />
+      </div>
     </div>
   );
 };

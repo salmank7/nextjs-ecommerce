@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const Links = [
@@ -40,12 +41,13 @@ const LowerNavbar = () => {
   return (
     <div className="hidden md:flex items-center justify-center w-full font-[500] gap-10 py-4 shadow-sm text-sm">
       {Links.map((item) => (
-        <div
-          key={item.id}
-          onClick={() => router.push(item.route)}
-          className="cursor-pointer uppercase hover:text-neutral-400 transition-all"
-        >
-          {item.label}{" "}
+        <div key={item.id}>
+          <Link
+            href={item.route}
+            className="cursor-pointer uppercase hover:text-neutral-400 transition-all"
+          >
+            {item.label}{" "}
+          </Link>
         </div>
       ))}
     </div>

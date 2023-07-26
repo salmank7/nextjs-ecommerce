@@ -25,7 +25,7 @@ const PreviewModal = () => {
       } fixed inset-0 bg-black bg-opacity-50  h-screen w-full z-30 `}
     >
       <div className="flex items-center justify-center h-full">
-        <div className="bg-white w-[50%] md:w-[60%] h-[100%] md:h-[80%] shadow-2xl relative">
+        <div className="bg-white w-[95%] md:w-[60%] h-[80%] md:h-[80%] shadow-2xl relative">
           <div className="flex flex-col md:flex-row items-center justify-center h-full">
             {/* gallery */}
             <div className="flex flex-col md:flex-row h-full w-full flex-[3] pr-1 bg-gray-300 md:flex-1">
@@ -56,7 +56,7 @@ const PreviewModal = () => {
                 </p>
                 <p>Product Id: {product.serialNo}</p>
               </div>
-              <div className="flex flex-row relative gap-2 mt-1">
+              <div className="flex flex-row flex-wrap relative gap-2 mt-1">
                 {product.imageSrc.map((image, index) => (
                   <Image
                     key={image}

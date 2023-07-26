@@ -21,6 +21,7 @@ model User {
   updatedAt      DateTime  @updatedAt
   cart           String[]  @db.ObjectId
   order          String[]  @db.ObjectId
+  favouriteIds   String[]  @db.ObjectId
 }
 
 model Product {

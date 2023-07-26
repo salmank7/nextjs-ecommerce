@@ -40,7 +40,7 @@ const Hero = () => {
       {/* desktop slider */}
       <div className="hidden md:block">
         <div className="overflow-x-hidden bg-red-50 relative group transition-all duration-300">
-          <Slider {...settings}>
+          <Slider {...settings} ref={sliderRef}>
             <div>
               <div
                 className={` h-[calc(100vh-148px)] ${styles.imageContainer}`}

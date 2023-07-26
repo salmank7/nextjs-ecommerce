@@ -52,11 +52,15 @@ const Modal: React.FC<ModalProps> = ({
   return (
     <>
       {/* how to hide this shadow or this whole sections after modal closes  */}
-      <div className={`fixed inset-0 h-screen w-full bg-gray-900/80 z-20`}>
+      <div className={`fixed inset-0 h-screen w-full z-10`}>
+        <div
+          onClick={handleClose}
+          className="absolute inset-0 bg-gray-900/80 z-10 h-screen w-full"
+        ></div>
         <div className="flex items-end justify-end">
           {/* modal */}
           <div
-            className={`h-screen border w-[80%] sm:w-[60%] md:w-[340px] transition translate duration-300
+            className={`h-screen border z-20 w-[80%] sm:w-[60%] md:w-[340px] transition translate duration-300
              ${showModal ? "translate-x-0" : "translate-x-full"} ${
               showModal ? "opacity-100" : "opacity-0"
             }
