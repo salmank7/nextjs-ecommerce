@@ -9,6 +9,8 @@ export type SafeUser = Omit<
     updatedAt: string | null
     emailVerified: string | null
 }
+
+export type RawProduct = Omit<Product, "createdAt">;
 export type SafeProduct = Omit<
     Product,
     "createdAt"

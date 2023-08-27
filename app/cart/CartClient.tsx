@@ -4,11 +4,18 @@ import { useEffect, useState } from "react";
 import getCurrentUser from "../actions/getCurrentUser";
 import EmptyState from "../components/EmptyState";
 import { useCart } from "../hooks/useCart";
-import { SafeProduct } from "../types";
+import { SafeProduct, SafeUser } from "../types";
 import CartItem from "./CartItem";
+import useLoginModal from "../hooks/useLoginModal";
+import { toast } from "react-hot-toast";
 
-const CartClient = () => {
+type CartClientProps = {
+  currentUser: SafeUser | null;
+};
+
+const CartClient: React.FC<CartClientProps> = ({ currentUser }) => {
   const cart = useCart();
+  const loginModal = useLoginModal();
 
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -20,6 +27,15 @@ const CartClient = () => {
     setTotalPrice(calculatedPrice);
   }, [cart.cartItems]);
 
+  const handleCheckout = () => {
+    if (!currentUser) {
+      loginModal.onOpen();
+      toast.error("please login first!");
+      return;
+    }
+
+    toast.success("will go to checkout page");
+  };
   if (cart.cartItems.length === 0) {
     return (
       <div>
@@ -76,7 +92,10 @@ const CartClient = () => {
             currently displayed in , the checkout will use PKR at the most
             current exchange rate.
           </p>
-          <button className="bg-black border border-black text-white py-4 px-12 rounded-full text-lg">
+          <button
+            className="bg-black border border-black text-white py-4 px-12 rounded-full text-lg"
+            onClick={handleCheckout}
+          >
             Check Out
           </button>
         </div>

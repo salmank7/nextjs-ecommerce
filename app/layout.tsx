@@ -23,13 +23,13 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const currentUser = await getCurrentUser();
-  const favProduts = await getFavouriteProducts();
+  const favouriteProducts = await getFavouriteProducts();
   return (
     <html lang="en">
       <body className={font.className}>
         <ClientOnly>
           <ToasterProvider />
-          <Navbar currentUser={currentUser} favProducts={favProduts} />
+          <Navbar currentUser={currentUser} favProducts={favouriteProducts} />
           <LoginModal />
           <RegisterModal />
           <PreviewModal />

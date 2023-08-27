@@ -9,7 +9,7 @@ const page = async () => {
     <div className="mt-[51px] md:mt-[155px]">
       <div className="flex flex-col w-full">
         <Heading label="Cart" />
-        <CartClient />
+        <CartClient currentUser={currentUser} />
       </div>
     </div>
   );

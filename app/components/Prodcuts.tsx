@@ -1,6 +1,6 @@
 import React from "react";
 import Product from "./Product";
-import { SafeUser } from "../types";
+import { SafeProduct, SafeUser } from "../types";
 
 interface ProdcutsProps {
   products: any;
@@ -8,7 +8,7 @@ interface ProdcutsProps {
 }
 
 const Prodcuts: React.FC<ProdcutsProps> = async ({ products, currentUser }) => {
-  if (products?.length == 0) return null;
+  if (products?.length === 0) return null;
 
   return (
     <div className="min-h-screen py-10 px-[2px]">

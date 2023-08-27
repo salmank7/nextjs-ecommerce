@@ -4,18 +4,14 @@ import React, { MouseEventHandler } from "react";
 import Image from "next/image";
 import { SafeProduct, SafeUser } from "../types";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import usePreviewModal from "../hooks/usePreviewModal";
 import { useCart } from "../hooks/useCart";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { BiHeart } from "react-icons/bi";
-import { toast } from "react-hot-toast";
-import getCurrentUser from "../actions/getCurrentUser";
+
 import axios from "axios";
 import HeartButton from "./HeartButton";
 
 interface ProductProps {
-  product: SafeProduct;
+  product: any;
   currentUser: SafeUser | null;
 }
 

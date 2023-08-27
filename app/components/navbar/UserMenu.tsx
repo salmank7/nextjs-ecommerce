@@ -52,7 +52,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser, favProducts }) => {
         >
           <BsHeart size={24} />
           <span className="bg-black rounded-full absolute z-10 -top-1 -right-2 h-5 w-5 text-white flex items-center justify-center">
-            {favProducts?.length || "0"}
+            {favProducts?.length}
           </span>
         </div>
 

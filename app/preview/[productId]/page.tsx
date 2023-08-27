@@ -1,8 +1,9 @@
 import getProducts from "@/app/actions/getProducts";
-import Image from "next/image";
 
 interface PreviewProps {
-  params: any;
+  params: {
+    productId: string;
+  };
 }
 
 const page: React.FC<PreviewProps> = async ({ params }) => {
