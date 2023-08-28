@@ -14,7 +14,7 @@ const Homepage: React.FC<Collections> = async ({ params }) => {
   const proucts = await getProducts();
   const currentUser = await getCurrentUser();
   let category = proucts?.filter(
-    (Product) => Product.category == params.collection
+    (Product: any) => Product.category == params.collection
   );
 
   if (category?.length == 0) {

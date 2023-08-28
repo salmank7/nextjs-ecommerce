@@ -11,7 +11,7 @@ const page: React.FC<PreviewProps> = async ({ params }) => {
 
   console.log(params);
   const currentProduct = products?.find(
-    (product) => product.id === params.productId
+    (product: any) => product.id === params.productId
   );
 
   return <div className="mt-[51px] md:mt-[155px]">{currentProduct?.title}</div>;
