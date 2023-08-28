@@ -12,7 +12,7 @@ const page = async () => {
       <div className="flex flex-col w-full">
         <Heading label="Wishlisht" />
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-[80%] mx-auto py-8">
-          {favProds?.map((favProd) => (
+          {favProds?.map((favProd: any) => (
             <div key={favProd.id}>
               <Product product={favProd} currentUser={currentUser} />
             </div>
