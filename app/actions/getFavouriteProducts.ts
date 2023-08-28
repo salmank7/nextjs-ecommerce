@@ -17,7 +17,7 @@ export default async function getFavouriteProducts() {
             }
         })
 
-       const SafeFavourites = favs.map((favourite)=> ({
+       const SafeFavourites = favs.map((favourite: any)=> ({
         ...favourite,
         createdAt: favourite.createdAt.toISOString(),
        }))
