@@ -57,9 +57,9 @@ const PreviewModal = () => {
                 <p>Product Id: {product.serialNo}</p>
               </div>
               <div className="flex flex-row flex-wrap relative gap-2 mt-1">
-                {product.imageSrc.map((image, index) => (
+                {product.imageSrc.map((image: string, index: number) => (
                   <Image
-                    key={image}
+                    key={index}
                     src={image}
                     width={60}
                     height={40}
